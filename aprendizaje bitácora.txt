@@ -1,0 +1,37 @@
+- Crear mi objeto								SinOsc miBajo;
+- Darle atributos a mi objeto						220 => miBajo.freq;
+- Controlar el encendido y apagado de mi objeto				SinOsc miBajo => Envelope miSuiche => dac;
+									miSuiche.keyOn();
+									miSuiche.keyOff();
+- Ciclo infinito								while(true) {...}
+- tiempo del sonidos							1::second => now;
+- funcion para hacer acciones sobre los objetos - 
+- hoy aprendimos a darle vida(spork~) 
+a esa función - 							spork~ tocaBajo();
+	La anatomía de una funcion es: function <type> <name>							
+	<type>: void(vacio no retorna nada), int(retorna un entero),
+	 float (Retorna un flotante o decimal), 
+	dur (Retorna una duración/tiempo)				function void tocaBajo() {...}	
+- existen grupos de funciones en chuck, uno de los grupos 
+de funciones es Math y dentro de Math hay una funcion que se llama
+random2. En parentesis van dos valores dentro de los cuales 
+se escoge un valor aleatorio que va enlazado a la frecuencia del 
+instrumento.								Math.random2(4000,5000) => bajo.freq;
+- la función anterior la desplazamos para llamar una función
+dentro de otra función							function void tocaBajo() 
+								{
+    									while(true)
+    									{
+        								notaAleatoria();
+        								suena.keyOn();
+       									0.3::second => now;
+        								suena.keyOff();
+       									0.3::second => now;
+    									}
+								}
+
+									function void notaAleatoria()
+									{
+    									 	Math.random2(4000,5000) => bajo.freq;
+									}
+			   	
